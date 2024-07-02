@@ -1,0 +1,28 @@
+.main-navbar{
+    .containernavbar{
+        max-width: 1400px;
+        margin: auto;
+        list-style: none;
+        align-items: center;
+        font-weight: bold;
+        color: black;
+        text-decoration: none;
+
+    }
+    .navbar1 {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        color: black;
+        padding: 10px;
+        margin: 2px;
+        li{
+            a{
+                text-decoration: none;
+                &:hover {
+                    background-color: rgba(249, 245, 3, 0.811);
+                }
+            }
+        }
+    }
+}

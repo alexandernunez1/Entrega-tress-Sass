@@ -1,0 +1,31 @@
+.header-index {
+    div {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        margin: 10px;
+    }
+    h1 {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        background-color: blueviolet;
+        font-size: 2em;
+        font-weight: bold;
+    }
+    button{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 7px;
+        border: 2px solid rgba(0,0,0),0.5;
+        box-shadow: 2px 2px 10px rgba(0,0,0),0.5;
+        color: rgba(5, 5, 5, 0.603);
+        background-color: rgba(249, 245, 3, 0.811);
+        &:hover {
+            background-color: rgba(103, 6, 121, 0.783);
+        }
+    }
+}

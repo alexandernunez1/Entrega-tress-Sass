@@ -1,0 +1,47 @@
+/** foto index**/
+
+
+.imagenesbodegas{
+    text-align: center;
+    .luigi{
+        width: 500px;
+        height: 500px
+    }
+    .cundobodega{
+        width: 500px;
+        height: 500px
+    }
+    .gimenezrilli{
+        width: 500px;
+        height: 500px
+    }
+}
+
+.sommeliere{
+    .imgsome{
+    display: block;
+    margin: auto;
+    margin-top: 70px;
+    }
+}
+
+
+.imagen-club{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+
+/** Tienda **/
+
+
+
+*{
+    background-color: rgb(246, 246, 246);
+    height: auto;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

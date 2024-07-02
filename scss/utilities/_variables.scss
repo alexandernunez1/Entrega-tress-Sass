@@ -1,0 +1,181 @@
+/*renglon-color-descripcion (ejemplo-tienda*/
+
+$Color-Linea-vacia: #faebd7;
+$color-linea-importante: #8a2ce2;
+$Color-Linea-Contenido: #f3f1b6;
+$color-linea-contenidosecundario: #242424b0;
+
+$color-letras-contenido:black;
+$color-Letras-secundario: white;
+
+.tiempodevino-sus{
+    background-color: rgb(187, 123, 246);
+    color: $color-Letras-secundario;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 33px;
+    margin: 15px;
+}
+
+.nada{
+    background-color:$Color-Linea-vacia;
+    color: rgb(254, 254, 254);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 3px;
+    margin: 20px;
+}
+
+.nada1{
+    background-color: rgba(70, 70, 70, 0.251);
+    color: rgb(243, 241, 182);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 20px;
+}
+
+.nada2 {
+    background-color: rgb(63, 1, 77);
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 5px;
+}
+
+
+.nada5{
+    background-color: $Color-Linea-vacia;
+    color: rgb(243, 241, 182);
+    display: flex;
+    justify-content: center;
+    box-sizing: inherit;
+    padding: 5px;
+    margin: 5px;
+}
+
+.bodegas{
+    .bodegasquepodesencontrar{
+    text-align: center;
+    background-color: $color-linea-contenidosecundario;
+    font-weight: lighter;
+    font-size: 2rem;
+    justify-content: center;
+    gap: 1px;
+    }
+}
+
+/** Botones**/
+
+.botonesclub{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    .sabermas {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 7px;
+        border: 2px solid black;
+        box-shadow: 2px 2px 10px rgba 0,0,0,0.5;
+        color: white;
+        background-color: blueviolet;
+    }
+    .unitealclub{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 7px;
+        border: 2px solid rgba(0,0,0),0.5;
+        box-shadow: 2px 2px 10px rgba(0,0,0),0.5;
+        color: white;
+        background-color:blueviolet
+    }
+}
+
+
+/** El Club **/
+
+.botonesclub{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 5px;
+    .asociate-online {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 7px;
+        border: 2px solid black;
+        box-shadow: 2px 2px 10px rgba 0,0,0,0.5;
+        color: white;
+        background-color: blueviolet;
+    }
+    .quiero-asesoren{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 30px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 7px;
+        border: 2px solid rgba(0,0,0),0.5;
+        box-shadow: 2px 2px 10px rgba(0,0,0),0.5;
+        color: white;
+        background-color:blueviolet
+    }
+}
+
+.sabermas{
+    display: block;
+    margin: 0 auto;
+    padding: 5px 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 7px;
+    border: 2px solid black;
+    box-shadow: 2px 2px 10px rgba 0,0,0,0.5;
+    color: white;
+    background-color: blueviolet;
+}
+
+
+
+.comoeselclub h1 {
+    background-color: #8a2be2;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+/** Tienda **/ 
+
+.tienda-tiempo {
+    .tienda-central{
+    text-align: center;
+    background-color: #8a2be2;
+    color: #ffffff;
+    font-weight: lighter;
+    font-size: 2rem;
+    justify-content: center;
+    gap: 1px;
+    padding: 5px;
+    margin: 70px;
+    }
+}
+
+

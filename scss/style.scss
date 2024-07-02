@@ -1,0 +1,15 @@
+@import "./utilities/funciones";
+@import "./utilities/maps";
+@import "./utilities/mixis";
+@import "./utilities/variables";
+
+@import "./base/reset";
+@import "./base/tipografia";
+
+@import "./layout/header";
+@import "./layout/main";
+@import "./layout/footer";
+
+@import "./components/navbar";
+@import "./components/card";
+@import "./components/boostrap";
