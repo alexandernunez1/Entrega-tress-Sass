@@ -1,0 +1,870 @@
+@charset "UTF-8";
+/*renglon-color-descripcion (ejemplo-tienda*/
+.tiempodevino-sus {
+  background-color: rgb(187, 123, 246);
+  color: white;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 33px;
+  margin: 15px;
+}
+
+.nada {
+  background-color: #faebd7;
+  color: rgb(254, 254, 254);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 3px;
+  margin: 20px;
+}
+
+.nada1 {
+  background-color: rgba(70, 70, 70, 0.251);
+  color: rgb(243, 241, 182);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 20px;
+}
+
+.nada2 {
+  background-color: rgb(63, 1, 77);
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 5px;
+}
+
+.nada5 {
+  background-color: #faebd7;
+  color: rgb(243, 241, 182);
+  display: flex;
+  justify-content: center;
+  box-sizing: inherit;
+  padding: 5px;
+  margin: 5px;
+}
+
+.bodegas .bodegasquepodesencontrar {
+  text-align: center;
+  background-color: rgba(36, 36, 36, 0.6901960784);
+  font-weight: lighter;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 1px;
+}
+
+/** Botones**/
+.botonesclub {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+}
+.botonesclub .sabermas {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 10px rgba 0, 0, 0, 0.5;
+  color: white;
+  background-color: blueviolet;
+}
+.botonesclub .unitealclub {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0), 0.5;
+  color: white;
+  background-color: blueviolet;
+}
+
+/** El Club **/
+.botonesclub {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 5px;
+}
+.botonesclub .asociate-online {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 10px rgba 0, 0, 0, 0.5;
+  color: white;
+  background-color: blueviolet;
+}
+.botonesclub .quiero-asesoren {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0), 0.5;
+  color: white;
+  background-color: blueviolet;
+}
+
+.sabermas {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid black;
+  box-shadow: 2px 2px 10px rgba 0, 0, 0, 0.5;
+  color: white;
+  background-color: blueviolet;
+}
+
+.comoeselclub h1 {
+  background-color: #8a2be2;
+  color: aliceblue;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 3rem;
+}
+
+/** Tienda **/
+.tienda-tiempo .tienda-central {
+  text-align: center;
+  background-color: #8a2be2;
+  color: #ffffff;
+  font-weight: lighter;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 1px;
+  padding: 5px;
+  margin: 70px;
+}
+
+/** experiencia **/
+/* este archivo se llaman partials
+los partial son pequeños scss que guardan un fragmento de codigo
+especifico*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-index div {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+}
+.header-index h1 {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background-color: blueviolet;
+  font-size: 2em;
+  font-weight: bold;
+}
+.header-index button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0), 0.5;
+  color: rgba(5, 5, 5, 0.603);
+  background-color: rgba(249, 245, 3, 0.811);
+}
+.header-index button:hover {
+  background-color: rgba(136, 39, 156, 0.783);
+}
+
+/** contenido del main -index**/
+.fotoinicio {
+  width: 100%;
+  height: 100%;
+}
+.fotoinicio .lorcabodega {
+  width: 100%;
+  height: 100%;
+}
+
+.container-nuestro {
+  display: flex;
+  justify-content: center;
+}
+.container-nuestro .mamacocina {
+  width: 50%;
+  max-width: 600px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container-nuestro .buscamosque {
+  color: rgb(81, 14, 145);
+}
+
+.Asociate {
+  padding: 100px;
+}
+.Asociate .asociateAlcClubDelVino img {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 700px;
+  height: 700px;
+}
+
+.bodegas .bodegasquepodesencontrar {
+  text-align: center;
+  background-color: rgba(36, 36, 36, 0.692);
+  font-weight: lighter;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 1px;
+}
+.bodegas .imagenesbodegas {
+  text-align: center;
+}
+.bodegas .imagenesbodegas .luigi {
+  width: 500px;
+  height: 500px;
+}
+.bodegas .imagenesbodegas .cundobodega {
+  width: 500px;
+  height: 500px;
+}
+.bodegas .imagenesbodegas .gimenezrilli {
+  width: 500px;
+  height: 500px;
+}
+
+.parrafoColgado {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+.parrafoColgado .P {
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  font-size: 5rem;
+}
+
+.sommeliere .imgsome {
+  display: block;
+  margin: auto;
+  margin-top: 70px;
+}
+.sommeliere .p {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  justify-content: center;
+}
+.sommeliere .quiensoy {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  justify-content: center;
+  padding-top: 0.2px;
+  margin: 70px;
+}
+
+.suscribiterey {
+  background-color: rgba(155, 153, 150, 0.724);
+  text-align: center;
+}
+.suscribiterey .p {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+/** El Club**/
+.foto-club {
+  width: 100%;
+  height: 100%;
+}
+.foto-club .barriles-club {
+  width: 100%;
+  height: 80%;
+}
+
+.descripcionsession {
+  display: flex;
+  text-align: center;
+  background-color: #8a2be2;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.loquerecibiras {
+  display: block;
+  text-align: center;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/** Tienda **/
+.imgtienda {
+  width: 100%;
+  height: 30%;
+}
+
+/** QUIENES SOMOS **/
+.somos-nosotros .comunidad-tiempo {
+  text-align: center;
+  background-color: #8a2be2;
+  color: #ffffff;
+  font-weight: lighter;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 1px;
+  padding: 5px;
+  margin: 70px;
+}
+
+#quienes-somos .container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+#quienes-somos .container .texto {
+  width: 50%;
+  max-width: 600px;
+  text-align: initial;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#quienes-somos .container h2 {
+  margin-top: 0px;
+  background-color: blueviolet;
+}
+#quienes-somos .container .img-container {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("../components/img/bodega-comunidad.jfif");
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+  width: 200px;
+}
+
+#seleccion-de-vino .container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+#seleccion-de-vino .container .texto {
+  width: 50%;
+  max-width: 600px;
+  text-align: initial;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#seleccion-de-vino .container h2 {
+  margin-top: 0px;
+  background-color: blueviolet;
+}
+#seleccion-de-vino .container .img-container {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("../assets/camion-de-demenagement.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 400px;
+}
+
+#somos-comunidad .container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+#somos-comunidad .container .texto {
+  width: 50%;
+  max-width: 600px;
+  text-align: initial;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#somos-comunidad .container h2 {
+  margin-top: 0px;
+  background-color: blueviolet;
+}
+#somos-comunidad .container .img-container {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("../assets/bodega-comunidad.jfif");
+  background-size: cover;
+  background-position: center center;
+  height: 500px;
+  width: 400px;
+}
+
+.footer {
+  padding: 200;
+  margin: 100;
+  text-align: center;
+  justify-content: center;
+  background-color: rgba(36, 36, 36, 0.301);
+}
+
+.main-navbar .containernavbar {
+  max-width: 1400px;
+  margin: auto;
+  list-style: none;
+  align-items: center;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}
+.main-navbar .navbar1 {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  color: black;
+  padding: 10px;
+  margin: 2px;
+}
+.main-navbar .navbar1 li a {
+  text-decoration: none;
+}
+.main-navbar .navbar1 li a:hover {
+  background-color: rgba(249, 245, 3, 0.811);
+}
+
+/** boostrap **/
+.navbar {
+  padding: 50px;
+}
+
+.btn-primary {
+  background-color: blueviolet;
+}
+
+.nav-link {
+  color: blueviolet;
+}
+
+/** index-pag1**/
+.suscripciones-1 {
+  display: flex;
+}
+.suscripciones-1 .suscripciones {
+  margin: 3rem;
+  padding: 1rem;
+}
+.suscripciones-1 .suscripcionreglular {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
+  background-color: rgb(138, 43, 226);
+  font-weight: bold;
+}
+.suscripciones-1 .suscripcionreglular .vinos {
+  border-radius: 10px;
+}
+.suscripciones-1 .suscripcionreglular .centrar {
+  display: flex;
+  text-align: center;
+}
+.suscripciones-1 .suscripcionpremium {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
+  background-color: rgb(138, 43, 226);
+  font-weight: bold;
+}
+.suscripciones-1 .suscripcioninsignia {
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
+  background-color: rgb(138, 43, 226);
+  font-weight: bold;
+}
+
+/** El Club **/ /**Grid**/
+.conteinergrid {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  height: 37.5rem;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.carac1 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carac1 img {
+  width: 30%;
+  height: 30%;
+}
+
+.carac1 p {
+  background-color: rgb(138, 43, 226);
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  padding-right: 1.875rem;
+  color: rgb(255, 255, 0);
+}
+
+.carac2 {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carac2 img {
+  width: 30%;
+  height: 30%;
+}
+
+.carac2 p {
+  background-color: rgb(138, 43, 226);
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  padding-right: 1.875rem;
+  color: rgb(255, 255, 0);
+}
+
+.carac3 {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carac3 img {
+  width: 30%;
+  height: 30%;
+}
+
+.carac3 p {
+  background-color: rgb(138, 43, 226);
+  justify-content: center;
+  text-align: center;
+  font-size: 2rem;
+  padding-right: 1.875rem;
+  color: rgb(255, 255, 0);
+}
+
+.carac4 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.carac4 img {
+  width: 30%;
+  height: 30%;
+}
+
+.carac4 p {
+  background-color: rgb(138, 43, 226);
+  justify-content: center;
+  text-align: center;
+  font-size: 1.5625rem;
+  padding-right: 1.875rem;
+  color: rgb(255, 255, 0);
+}
+
+.tiempodevinos {
+  display: flex;
+  gap: 420px;
+  padding-left: 210px;
+  font-weight: bolder;
+}
+
+.gridsuscrip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  padding-left: 10%;
+  margin: 5%;
+}
+.gridsuscrip .etiquetas {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  color: rgb(138, 43, 226);
+}
+.gridsuscrip .envios {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  color: rgb(138, 43, 226);
+}
+.gridsuscrip .beneficio {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  color: rgb(138, 43, 226);
+}
+.gridsuscrip .degustacion {
+  grid-column: 1/2;
+  grid-row: 4/5;
+  color: rgb(138, 43, 226);
+}
+.gridsuscrip .cajainsigniaa {
+  width: 70%;
+  height: 100%;
+  justify-self: center;
+  grid-column: 3/4;
+  grid-row: 1/3;
+  padding: 5px;
+}
+.gridsuscrip .insig {
+  color: rgb(75, 74, 76);
+  grid-column: 3/4;
+  grid-row: 3/4;
+  text-align: center;
+}
+.gridsuscrip .iniciate {
+  grid-column: 3/4;
+  grid-row: 3/4;
+  justify-self: center;
+  align-self: self-end;
+  padding: auto;
+}
+.gridsuscrip .tiempo {
+  color: rgb(138, 43, 226);
+  grid-column: 3/4;
+  grid-row: 4/5;
+  text-align: right;
+}
+.gridsuscrip .botellas {
+  grid-column: 3/4;
+  grid-row: 4/5;
+  justify-self: center;
+  align-self: center;
+}
+.gridsuscrip .precio {
+  grid-column: 3/4;
+  grid-row: 4/5;
+  text-align: right;
+  align-self: center;
+}
+
+/** Tienda **/
+.price {
+  display: flex;
+  justify-content: right;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  height: 50%;
+  width: 50%;
+}
+
+/** Teinda **/
+.containertienda {
+  display: grid;
+  background-color: rgb(255, 255, 255);
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto;
+  border: 1px solid rgb(255, 254, 254);
+  margin: 5px;
+  padding: 10px;
+}
+
+.items {
+  background-color: rgb(255, 255, 255);
+  border: 7px solid rgb(255, 255, 255);
+  border-radius: 2px;
+  color: rgb(138, 43, 226);
+}
+
+.buton1 {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0), 0.5;
+  color: white;
+  background-color: rgb(117, 17, 126);
+}
+
+button:hover {
+  background-color: blueviolet;
+}
+
+.price {
+  display: flex;
+  justify-content: right;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+}
+
+.img {
+  height: 50%;
+  width: 50%;
+}
+
+.navbar {
+  padding: 50px;
+}
+
+.btn-primary {
+  background-color: blueviolet;
+}
+.btn-primary:hover {
+  background-color: rgb(123, 68, 173);
+}
+
+.nav-link {
+  color: blueviolet;
+}
+
+.regalaexperiencia {
+  color: blueviolet;
+}
+
+.descripcionsession {
+  padding: 20px;
+}
+
+.regalaexperiencia {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 300;
+}
+
+.bronce {
+  color: aliceblue;
+  margin: 2px;
+  padding: 50px;
+  background-color: rgb(121, 101, 48);
+}
+.bronce:hover {
+  background-color: rgb(123, 68, 173);
+}
+
+.descripcionbronce {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 300;
+}
+
+.beneficiobronce {
+  padding: 500;
+  margin: 500;
+  text-align: center;
+  justify-content: center;
+}
+
+.plata {
+  color: aliceblue;
+  margin: 2px;
+  padding: 50px;
+  gap: 1px;
+  background-color: rgb(135, 135, 135);
+}
+.plata:hover {
+  background-color: rgb(123, 68, 173);
+}
+
+.descripcionplata {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 300;
+}
+
+.beneficioplata {
+  padding: 500;
+  margin: 500;
+  text-align: center;
+  justify-content: center;
+}
+
+.oro {
+  color: aliceblue;
+  margin: 2px;
+  padding: 50px;
+  background-color: rgb(255, 196, 46);
+}
+.oro:hover {
+  background-color: rgb(123, 68, 173);
+}
+
+.descripcionoro {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 300;
+}
+
+.beneficiooro {
+  padding: 500;
+  margin: 500;
+  text-align: center;
+  justify-content: center;
+}/*# sourceMappingURL=style.css.map */

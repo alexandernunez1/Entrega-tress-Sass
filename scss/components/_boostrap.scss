@@ -1,3 +1,24 @@
+.navbar {
+    padding: 50px;
+  }
+  .btn-primary {
+    background-color: blueviolet;
+    &:hover {background-color:rgb(123, 68, 173);}
+    }
+
+    .nav-link {
+      color: blueviolet;
+    }
+
+    .regalaexperiencia {
+      color: blueviolet;
+    }
+
+.descripcionsession {
+    padding: 20px;
+}
+
+
 .regalaexperiencia {
     font-weight: bold;
     font-size: 1.2rem;
@@ -8,7 +29,8 @@
     color: aliceblue;
     margin: 2px;
     padding: 50px;
-    background-color: rgb(113, 82, 3);
+    background-color: rgb(121, 101, 48);
+    &:hover {background-color:rgb(123, 68, 173);}
 }
 .descripcionbronce {
 
@@ -30,7 +52,8 @@
     padding: 50px;
     gap: 1px
     ;
-    background-color: rgb(132, 131, 130);
+    background-color: rgb(135, 135, 135);
+    &:hover {background-color:rgb(123, 68, 173);}
 }
 .descripcionplata {
 
@@ -50,7 +73,8 @@
     color: aliceblue;
     margin: 2px;
     padding: 50px;
-    background-color: rgb(221, 171, 46);
+    background-color: rgb(255, 196, 46);
+    &:hover {background-color:rgb(123, 68, 173);}
 }
 .descripcionoro {
 
