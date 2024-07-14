@@ -339,6 +339,44 @@ especifico*/
 }
 
 /** QUIENES SOMOS **/
+.comunidad1 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  gap: 10px;
+}
+.comunidad1 .quienes1 {
+  background-color: #8a2be2;
+}
+.comunidad1 .texto1 {
+  padding: 50px;
+  margin: 10px;
+}
+.comunidad1 .imagen1 {
+  width: 500px;
+  height: 500px;
+  padding-bottom: 50px;
+}
+
+.comunidad2 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 100px;
+  gap: 10px;
+}
+.comunidad2 .quienes2 {
+  background-color: #8a2be2;
+}
+.comunidad2 .texto2 {
+  padding: 50px;
+  margin: 10px;
+}
+.comunidad2 .imagen2 {
+  width: 500px;
+  height: 500px;
+  padding-bottom: 50px;
+}
+
 .somos-nosotros .comunidad-tiempo {
   text-align: center;
   background-color: #8a2be2;
