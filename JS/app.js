@@ -11,9 +11,9 @@ let edadUsuario = parseInt(prompt("Ingrese su edad:"));
 if (edadUsuario >= 18) {
     alert(nombreUsuario + " BIENVENIDO A TIENDA DE VINO ");
     
-let respuesta = prompt("¿Quiere conocer las membresias de TIENDA DE VINO? SI O NO");
+let respuesta = prompt("¿Quiere conocer las membresias de TIENDA DE VINO? si o no");
 
-if (respuesta === "sí") {
+if (respuesta === "si") {
     console.log("el usuario quiere conocer las memebresias.");
 } else if (respuesta === "no") {
     alert("puede suscribirse mensualmente a las membresia de TIENDA DE VINO en la Web");
