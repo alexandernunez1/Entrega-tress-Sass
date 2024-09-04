@@ -1,5 +1,7 @@
 @charset "UTF-8";
 /*renglon-color-descripcion (ejemplo-tienda*/
+
+
 .tiempodevino-sus {
   background-color: rgb(187, 123, 246);
   color: white;
@@ -9,6 +11,64 @@
   padding: 33px;
   margin: 15px;
 }
+
+.suscripciones {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.card{
+  width: 98%;
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  cursor: default;
+  transition: all 400ms ease;
+}
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+  transform: translateY(-3%);
+}
+
+.card img {
+  width: 35%;
+  height: 210px;
+}
+
+.card .suscripcion-total {
+  padding: 15px;
+  text-align: center;
+}
+
+.card .suscripcion-total p{
+  line-height: 1.5;
+  color: rgb(35, 34, 34);
+}
+
+.card .suscripcion-total h3{
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.card .suscripcion-total a{
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  color: #480657;
+  border: 1px solid #480657;
+  border-radius: 4px;
+  transition: all 400ms ease;
+}
+.card .suscripcion-total a:hover{
+  background: #480657;
+  color: #fff;
+}
+
+
 
 .nada {
   background-color: #faebd7;
@@ -756,7 +816,7 @@ figure {
   width: 50%;
 }
 
-/** Teinda **/
+/** Tienda **/
 .containertienda {
   display: grid;
   background-color: rgb(255, 255, 255);
@@ -768,10 +828,11 @@ figure {
 }
 
 .items {
+  text-align: center;
   background-color: rgb(255, 255, 255);
   border: 7px solid rgb(255, 255, 255);
   border-radius: 2px;
-  color: rgb(138, 43, 226);
+  color: rgb(7, 7, 7);
 }
 
 .buton1 {
@@ -792,10 +853,14 @@ button:hover {
 }
 
 .price {
-  display: flex;
-  justify-content: right;
-  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 7px;
+  border: 2px solid rgb(0, 0, 0), 0.5;
+  box-shadow: 2px 2px 10px rgb(0, 0, 0), 0.5;
   padding: 10px;
+  color: #4a0e4a;
 }
 
 figure {

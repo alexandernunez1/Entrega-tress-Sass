@@ -208,6 +208,65 @@ especifico*/
   height: 100%;
 }
 
+.suscripciones {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  max-width: 1100px;
+}
+.card{
+  width: 100%;
+  margin: 20px;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  cursor: default;
+  transition: all 400ms ease;
+}
+.card:hover {
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+  transform: translateY(-3%);
+}
+
+.card img {
+  width: 100%;
+  height: 210px;
+}
+
+.card .suscripcion-total {
+  padding: 15px;
+  text-align: center;
+}
+
+.card .suscripcion-total p{
+  line-height: 1.5;
+  color: rgb(35, 34, 34);
+}
+
+.card .suscripcion-total h3{
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.card .suscripcion-total a{
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  margin-top: 10px;
+  color: #480657;
+  border: 1px solid #480657;
+  border-radius: 4px;
+  transition: all 400ms ease;
+}
+.card .suscripcion-total a:hover{
+  background: #480657;
+  color: #fff;
+}
+
+
+
+
 .container-nuestro {
   display: flex;
   justify-content: center;
@@ -477,48 +536,6 @@ especifico*/
   color: blueviolet;
 }
 
-/** index-pag1**/
-.suscripciones-1 {
-  display: flex;
-}
-.suscripciones-1 .suscripciones {
-  margin: 3rem;
-  padding: 1rem;
-}
-.suscripciones-1 .suscripcionreglular {
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
-  border: 2px solid rgb(0, 0, 0), 0.5;
-  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
-  background-color: rgb(138, 43, 226);
-  font-weight: bold;
-}
-.suscripciones-1 .suscripcionreglular .vinos {
-  border-radius: 10px;
-}
-.suscripciones-1 .suscripcionreglular .centrar {
-  display: flex;
-  text-align: center;
-}
-.suscripciones-1 .suscripcionpremium {
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
-  border: 2px solid rgb(0, 0, 0), 0.5;
-  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
-  background-color: rgb(138, 43, 226);
-  font-weight: bold;
-}
-.suscripciones-1 .suscripcioninsignia {
-  width: 300px;
-  height: 300px;
-  border-radius: 15px;
-  border: 2px solid rgb(0, 0, 0), 0.5;
-  box-shadow: 7px 27px 15px rgb(0, 0, 0), 1;
-  background-color: rgb(138, 43, 226);
-  font-weight: bold;
-}
 
 /** El Club **/ /**Grid**/
 .conteinergrid {
