@@ -55,11 +55,11 @@ const articulos = [
     new Articulo(6, "Mauricio Lorca Ancestral Malbec", 160000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
     new Articulo(7, "Enrique Foster Ique Malbec", 40000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
     new Articulo(8, "Enrique Foster Single Vineyard Los Altepes", 80000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(10, "Mauricio Lorca Fantasía", 70000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(11, "Mauricio Lorca Inspirado", 102000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(12, "Mauricio Lorca Poético", 45000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(13, "Enrique Foster Reserva", 120000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(15, "Enrique Foster Ique", 96000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah",] )
+    new Articulo(9, "Mauricio Lorca Fantasía", 70000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
+    new Articulo(10, "Mauricio Lorca Inspirado", 120000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
+    new Articulo(11, "Mauricio Lorca Poético", 45000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
+    new Articulo(12, "Enrique Foster Reserva", 120000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
+    new Articulo(13, "Enrique Foster Ique", 96000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah",] )
 ];
 
 function mostrarArticulos() {
@@ -140,6 +140,137 @@ function mostrarArticulosFiltrados(articulosFiltrados) {
     });
 }
 
-} else {
+function seleccionarVarietal(varietal, articuloId) {
+    const articulo = articulos.find(a => a.id === articuloId);
+    if (articulo) {
+        let cantidad = parseInt(prompt(`¿Cuántas unidades deseas de ${articulo.nombreProducto} (${varietal})?`), 10);
+        if (isNaN(cantidad) || cantidad <= 0) {
+            alert("No agregaste ningun vino, agregue las unidades que quieres a la caja");
+        } else {
+            let itemEnCaja = caja.find(item => item.articulo.id === articulo.id && item.varietal === varietal);
+            if (itemCaja) {
+                itemCaja.cantidad += cantidad;
+            } else {
+                caja.push({ articulo, cantidad, varietal });
+            }
+            guardarCaja();
+            actualizarContadorCaja();
+            alert(`Has aagregado ${cantidad} unidad(es) de ${articulo.nombreProducto} (${varietal}) a la caja.`);
+        }
+    } else {
+        alert("Artículo no encontrado.");
+    }
+}
+
+function mostrarCaja() {
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartContents = document.getElementById('cartContents');
+    
+    if (caja.length === 0) {
+        cartContents.innerHTML = "<p>no hay ningun vino en la caja</p>";
+    } else {
+        let resumenCaja = "";
+        let total = 0;
+        caja.forEach((item, index) => {
+            const precioConIVA = (item.articulo.precioProducto * (1 + IVA)).toFixed(2);
+            const subtotal = (item.cantidad * item.articulo.precioProducto * (1 + IVA)).toFixed(2);
+            resumenCaja += `
+                <div class="cart-item">
+                    <p><strong>Artículo:</strong> ${item.articulo.nombreProducto}</p>
+                    <p><strong>Varietal:</strong> ${item.varietal}</p>
+                    <p><strong>Precio Unitario (con IVA):</strong> $${precioConIVA}</p>
+                    <p><strong>Subtotal:</strong> $${subtotal}</p>
+                    <input type="number" value="${item.cantidad}" min="1" onchange="actualizarCantidad(${index}, this.value)">
+                    <button onclick="eliminarArticulo(${index})">Eliminar</button>
+                </div>
+            `;
+            total += parseFloat(subtotal);
+        });
+        resumenCaja += `<p><strong>Su total es :</strong> $${total.toFixed(2)}</p>`;
+        cartContents.innerHTML = resumenCarrito;
+    }
+    
+    cartOverlay.style.display = 'block';
+}
+
+function actualizarCantidad(index, nuevaCantidad) {
+    nuevaCantidad = parseInt(nuevaCantidad, 10);
+    if (isNaN(nuevaCantidad) || nuevaCantidad <= 0) {
+        alert("no hay vinos agregados, agregue algun vino.");
+        return;
+    }
+
+    caja[index].cantidad = nuevaCantidad;
+    if (nuevaCantidad === 0) {
+        caja.splice(index, 1); 
+    }
+    guardarCaja();
+    actualizarCaja();
+    mostrarCaja();
+}
+
+function eliminarArticulo(index) {
+    caja.splice(index, 1);
+    guardarCaja();
+    actualizarCaja();
+    mostrarCaja();
+}
+
+function ocultarCaja() {
+    const cartOverlay = document.getElementById('cartOverlay');
+    cartOverlay.style.display = 'none';
+}
+
+function actualizarCaja() {
+    const contadorCaja = document.getElementById('contadorCaja');
+    const totalArticulos = caja.reduce((acc, item) => acc + item.cantidad, 0);
+    contadorCaja.textContent = `${totalArticulos}`;
+}
+
+function finalizarCompra() {
+    if (caja.length === 0) {
+        alert("No hay productos en la caja. No puedes finalizar la compra.");
+        return;
+    }
+
+    alert("¡Gracias por tu compra! Tu pedido ha sido procesado.");
+    caja= [];
+    guardarCaja();
+    actualizarContadorCaja;
+    mostrarCaja(); 
+}
+
+function guardarCaja() {
+    localStorage.setItem('caja', JSON.stringify(caja));
+}
+
+function mostrarMensaje(mensaje, tipo = 'info') {
+    const mensajeDiv = document.getElementById('mensaje');
+    if (!mensajeDiv) return;
+
+    mensajeDiv.textContent = mensaje;
+    mensajeDiv.className = `mensaje ${tipo}`;
+    mensajeDiv.style.display = 'block';
+
+    setTimeout(() => {
+        mensajeDiv.style.display = 'none';
+    }, 2500); 
+}
+
+function cargarCaja() {
+    const cargarCaja = localStorage.getItem('Caja');
+    if (cargarCaja) {
+        caja = JSON.parse(CargarCaja);
+        actualizarContadorCaja();
+    }
+}
+
+window.onload = function() {
+    cargarCaja();
+    mostrarArticulos();
+    mostrarMenu();
+};
+
+else {
     alert("vuelve cuando seas mayor");
 }
