@@ -3,89 +3,89 @@
         "id": "1",
         "nombre": "Enrique Foster Reserva",
         "precio": 83000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
     
     {
         "id": "2",
         "nombre": "Enrique Foster Edición Limitada",
         "precio": 99000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
     
     {
         "id": "3",
         "nombre": "Enrique Foster Single Vineyard Los Barrancos",
         "precio": 84000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },    
     {
         "id": "4",
         "nombre": "Mauricio Lorca Ópalo Malbec",
         "precio": 60000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
 
     {
         "id": "5",
         "nombre": "Enrique Foster Firmado Malbec",
         "precio": 180000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
+    },
 
-    },    
     {
         "id": "6",
         "nombre": "Mauricio Lorca Ancestral Malbec",
         "precio": 160000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },  
 
     {
         "id": "7",
         "nombre": "Enrique Foster Ique Malbec",
         "precio": 40000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     }, 
 
     {
         "id": "8",
         "nombre": "Enrique Foster Single Vineyard Los Altepes",
         "precio": 80000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     }, 
 
     {
         "id": "9",
         "nombre": "Mauricio Lorca Fantasía",
         "precio": 70000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
 
     {
         "id": "10",
         "nombre": "Mauricio Lorca Inspirado",
         "precio": 120000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
 
     {
         "id": "11",
         "nombre": "Mauricio Lorca Poético",
         "precio": 45000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
 
     {
         "id": "12",
         "nombre": "Enrique Foster Reserva",
         "precio": 120000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     },
 
     {
         "id": "13",
         "nombre": "Enrique Foster Ique",
         "precio": 96000,
-        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],
+        "varietalProducto": ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"]
     }
 ]

@@ -1,41 +1,5 @@
-alert("BIENVENIDO A TIEMPO DE VINO");
-
-let nombreUsuario = prompt("Ingrese nombre:");
-    while(nombreUsuario == "") {
-        alert("ingrese usuario");
-nombreUsuario = prompt("ingrese nombre:");
-}
-
-let edadUsuario = parseInt(prompt("Ingrese su edad:"));
-
-if (edadUsuario >= 18) {
-    alert(nombreUsuario + " BIENVENIDO A TIENDA DE VINO ");
-    
-let respuesta = prompt("¿Quiere conocer las membresias de TIENDA DE VINO? si o no");
-
-if (respuesta === "si") {
-    console.log("el usuario quiere conocer las memebresias.");
-} else if (respuesta === "no") {
-    alert("puede suscribirse mensualmente a las membresia de TIENDA DE VINO en la Web");
-} else {
-    alert("Respuesta inválida. Por favor, ingresa 'sí' o 'no'.");
-}
-
-function elegirMembresia() {
-    let membresia = prompt("Elige una de las opciones: \n1- Membresia Bronce \n2- Membresia Plata \n3- Membresia Oro");
-    if (membresia === "1") {
-        alert("Has elegido la Membresia Bronce. ¡Bienvenido!");
-    } else if (membresia === "2") {
-        alert("Has elegido la Membresia Plata. ¡Excelente elección!");
-    } else if (membresia === "3") {
-        alert("Has elegido la Membresia Oro. ¡Felicidades!");
-    } else {
-        alert("Opción inválida. Por favor, elige una opción válida.");
-    }
-}
-elegirMembresia();
-
 let carroDeCompras  = [];
+const IVA = 0.21; // Definimos la constante IVA con un valor del 21%
 
 class Articulo {
     constructor(id, nombreProducto, precioProducto, varietal,) {
@@ -64,16 +28,16 @@ const articulos = [
 
 function mostrarArticulos() {
     const contenedor = document.getElementById("containertienda");
-    contenedor.innerHTML = " "; 
+    contenedor.innerHTML = ""; 
     
     articulos.forEach(articulo => {
-        const articuloDiv = document.createElement ("div");
+        const articuloDiv = document.createElement("div");
         articuloDiv.classList.add("articulo");
         
         const varietalesDiv = document.createElement("div");
         varietalesDiv.classList.add("varietal");
 
-        varietalProducto.forEach(varietal => {
+        articulo.varietalProducto.forEach(varietal => {
             const varietalBoton = document.createElement("button");
             varietalBoton.textContent = varietal;
             varietalBoton.classList.add("varietal-boton");
@@ -83,22 +47,16 @@ function mostrarArticulos() {
             varietalesDiv.appendChild(varietalBoton);
         });
         
+        const precioConIVA = (articulo.precioProducto * (1 + IVA)).toFixed(2);
         articuloDiv.innerHTML = `
             <h3>${articulo.nombreProducto}</h3>
-            <p>Precio: $${articulo.precioProducto}</p>
+            <p>Precio (con IVA): $${precioConIVA}</p>
         `;
         
         articuloDiv.appendChild(varietalesDiv);
         
         contenedor.appendChild(articuloDiv);
     });
-
-    const precioConIVA = (articulo.precioProducto * (1 + IVA)).toFixed(2);
-
-        articuloDiv.innerHTML = `
-            <h3>${articulo.nombreProducto}</h3>
-            <p>Precio: $${precioConIVA}</p>
-        `;
 }
 
 function buscarArticulos() {
@@ -129,9 +87,10 @@ function mostrarArticulosFiltrados(articulosFiltrados) {
             varietalesDiv.appendChild(varietalBoton);
         });
         
+        const precioConIVA = (articulo.precioProducto * (1 + IVA)).toFixed(2);
         articuloDiv.innerHTML = `
             <h3>${articulo.nombreProducto}</h3>
-            <p>Precio: $${articulo.precioProducto}</p>
+            <p>Precio (con IVA): $${precioConIVA}</p>
         `;
         
         articuloDiv.appendChild(varietalesDiv);
@@ -155,7 +114,7 @@ function seleccionarVarietal(varietal, articuloId) {
             }
             guardarCaja();
             actualizarContadorCaja();
-            alert(`Has aagregado ${cantidad} unidad(es) de ${articulo.nombreProducto} (${varietal}) a la caja.`);
+            alert(`Has agregado ${cantidad} unidad(es) de ${articulo.nombreProducto} (${varietal}) a la caja.`);
         }
     } else {
         alert("Artículo no encontrado.");
@@ -167,7 +126,7 @@ function mostrarCaja() {
     const cartContents = document.getElementById('cartContents');
     
     if (caja.length === 0) {
-        cartContents.innerHTML = "<p>no hay ningun vino en la caja</p>";
+        cartContents.innerHTML = "<p>No hay ningún vino en la caja</p>";
     } else {
         let resumenCaja = "";
         let total = 0;
@@ -186,22 +145,22 @@ function mostrarCaja() {
             `;
             total += parseFloat(subtotal);
         });
-        resumenCaja += `<p><strong>Su total es :</strong> $${total.toFixed(2)}</p>`;
-        cartContents.innerHTML = resumenCarrito;
+        resumenCaja += `<p><strong>Su total es:</strong> $${total.toFixed(2)}</p>`;
+        cartContents.innerHTML = resumenCaja;
     }
     
     cartOverlay.style.display = 'block';
 }
 
-function actualizarCantidad(index, nuevaCantidad) {
-    nuevaCantidad = parseInt(nuevaCantidad, 10);
-    if (isNaN(nuevaCantidad) || nuevaCantidad <= 0) {
-        alert("no hay vinos agregados, agregue algun vino.");
+function actualizarCantidad(index, newCantidad) {
+    nuevaCantidad = parseInt(newCantidad, 10);
+    if (isNaN(newCantidad) || newCantidad <= 0) {
+        alert("No hay vinos agregados, agregue algún vino.");
         return;
     }
 
-    caja[index].cantidad = nuevaCantidad;
-    if (nuevaCantidad === 0) {
+    caja[index].cantidad = newCantidad;
+    if (newCantidad === 0) {
         caja.splice(index, 1); 
     }
     guardarCaja();
@@ -234,9 +193,9 @@ function finalizarCompra() {
     }
 
     alert("¡Gracias por tu compra! Tu pedido ha sido procesado.");
-    caja= [];
+    caja = [];
     guardarCaja();
-    actualizarContadorCaja;
+    actualizarContadorCaja();
     mostrarCaja(); 
 }
 
@@ -258,9 +217,9 @@ function mostrarMensaje(mensaje, tipo = 'info') {
 }
 
 function cargarCaja() {
-    const cargarCaja = localStorage.getItem('Caja');
-    if (cargarCaja) {
-        caja = JSON.parse(CargarCaja);
+    const cajaGuardada = localStorage.getItem('caja');
+    if (cajaGuardada) {
+        caja = JSON.parse(cajaGuardada);
         actualizarContadorCaja();
     }
 }
@@ -271,6 +230,41 @@ window.onload = function() {
     mostrarMenu();
 };
 
-else {
-    alert("vuelve cuando seas mayor");
+async function obtenerProductos() {
+    try {
+        const respuesta = await fetch("http://localhost:5500/Entrega-tress-Sass/json/vinos.json");
+        if (!respuesta.ok) {
+            throw new Error(`Error al obtener los productos: Código: ${respuesta.status}`);
+        }
+        const productos = await respuesta.json();
+        renderizarProductos(productos);
+    } catch (error) {
+        console.error(`Hubo un problema con la solicitud fetch:`, error);
+    }
 }
+
+function renderizarProductos(productos) {
+    const contenedorProductos = document.getElementById('productos-container');
+
+    productos.forEach(({id, nombre, precio, varietalProducto}) => {
+        // Crear un div para cada producto con las clases de Bootstrap
+        const divProducto = document.createElement('div');
+        divProducto.className = "card card-gris col-10";
+
+        // Contenido HTML del producto
+        const precioConIVA = (precio * (1 + IVA)).toFixed(2);
+        divProducto.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title">${nombre}</h5>
+                <p class="card-text"><strong>Precio (con IVA):</strong> $${precioConIVA}</p>
+                <p class="card-text"><strong>Categoría:</strong> ${varietalProducto}</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito('${nombre}', ${precio})">Añadir al carrito</button>
+            </div>
+        `;
+
+        // Añadir el producto al contenedor
+        contenedorProductos.appendChild(divProducto);
+    });
+}
+
+obtenerProductos();
