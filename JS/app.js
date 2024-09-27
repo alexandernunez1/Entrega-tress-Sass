@@ -1,270 +1,257 @@
-let carroDeCompras  = [];
-const IVA = 0.21; // Definimos la constante IVA con un valor del 21%
 
+// Desestructuración de objetos y arrays
+// Desestructuración de objetos y arrays
+const { localStorage, document, fetch, console, window } = globalThis;
+const { parse, stringify } = JSON;
+
+// Variables y constantes
+let carroDeCompras = [];
+const IVA = 0.21;
+let articulos = [];
+
+// Clase Articulo
 class Articulo {
-    constructor(id, nombreProducto, precioProducto, varietal,) {
-        this.id = id;
-        this.nombreProducto = nombreProducto;
-        this.precioProducto = precioProducto;
-        this.varietalProducto= varietal;
+    constructor(id, nombreProducto, precioProducto, varietal) {
+        Object.assign(this, { id, nombreProducto, precioProducto, varietalProducto: varietal });
     }
 }
 
-const articulos = [
-    new Articulo(1, "Enrique Foster Reserva", 83000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"], ),
-    new Articulo(2, "Enrique Foster Edición Limitada", 99000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(3, "Enrique Foster Single Vineyard Los Barrancos", 84000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(4, "Mauricio Lorca Ópalo Malbec", 60000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(5, "Enrique Foster Firmado Malbec", 180000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(6, "Mauricio Lorca Ancestral Malbec", 160000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(7, "Enrique Foster Ique Malbec", 40000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(8, "Enrique Foster Single Vineyard Los Altepes", 80000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(9, "Mauricio Lorca Fantasía", 70000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(10, "Mauricio Lorca Inspirado", 120000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(11, "Mauricio Lorca Poético", 45000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(12, "Enrique Foster Reserva", 120000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah"],),
-    new Articulo(13, "Enrique Foster Ique", 96000, ["Malbec", "Cabernet Sauvignon", "Pinot Noir", "Syrah",] )
-];
-
-function mostrarArticulos() {
-    const contenedor = document.getElementById("containertienda");
-    contenedor.innerHTML = ""; 
-    
-    articulos.forEach(articulo => {
-        const articuloDiv = document.createElement("div");
-        articuloDiv.classList.add("articulo");
-        
-        const varietalesDiv = document.createElement("div");
-        varietalesDiv.classList.add("varietal");
-
-        articulo.varietalProducto.forEach(varietal => {
-            const varietalBoton = document.createElement("button");
-            varietalBoton.textContent = varietal;
-            varietalBoton.classList.add("varietal-boton");
-            varietalBoton.onclick = () => {
-                seleccionarVarietal(varietal, articulo.id);
-            };
-            varietalesDiv.appendChild(varietalBoton);
-        });
-        
-        const precioConIVA = (articulo.precioProducto * (1 + IVA)).toFixed(2);
-        articuloDiv.innerHTML = `
-            <h3>${articulo.nombreProducto}</h3>
-            <p>Precio (con IVA): $${precioConIVA}</p>
-        `;
-        
-        articuloDiv.appendChild(varietalesDiv);
-        
-        contenedor.appendChild(articuloDiv);
-    });
+// Recuperar carrito guardado
+const carritoGuardado = localStorage.getItem('carrito');
+if (carritoGuardado) {
+    carroDeCompras = parse(carritoGuardado);
 }
 
-function buscarArticulos() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const articulosFiltrados = articulos.filter(articulo => 
-        articulo.nombreProducto.toLowerCase().includes(input)
-    );
-    mostrarArticulosFiltrados(articulosFiltrados);
-}
+// Funciones
+const eliminarDelCarrito = (id) => {
+    carroDeCompras = carroDeCompras.filter(item => item.id !== id);
+    localStorage.setItem('carrito', stringify(carroDeCompras));
+    actualizarVistaCarrito();
+};
 
-function mostrarArticulosFiltrados(articulosFiltrados) {
-    const contenedor = document.getElementById("containertienda");
-    contenedor.innerHTML = ''; 
-    
-    articulosFiltrados.forEach(articulo => {
-        const articuloDiv = document.createElement("div");
-        articuloDiv.classList.add("articulo");
-        
-        const varietalesDiv = document.createElement("div");
-        varietalesDiv.classList.add("varietales");
-        articulo.varietalProducto.forEach(varietal => {
-            const varietalBoton = document.createElement("button");
-            varietalBoton.textContent = varietal;
-            varietalBoton.classList.add("varietal-boton");
-            varietalBoton.onclick = () => {
-                seleccionarVarietal(varietal, articulo.id);
-            };
-            varietalesDiv.appendChild(varietalBoton);
-        });
-        
-        const precioConIVA = (articulo.precioProducto * (1 + IVA)).toFixed(2);
-        articuloDiv.innerHTML = `
-            <h3>${articulo.nombreProducto}</h3>
-            <p>Precio (con IVA): $${precioConIVA}</p>
-        `;
-        
-        articuloDiv.appendChild(varietalesDiv);
-        
-        contenedor.appendChild(articuloDiv);
-    });
-}
-
-function seleccionarVarietal(varietal, articuloId) {
-    const articulo = articulos.find(a => a.id === articuloId);
-    if (articulo) {
-        let cantidad = parseInt(prompt(`¿Cuántas unidades deseas de ${articulo.nombreProducto} (${varietal})?`), 10);
-        if (isNaN(cantidad) || cantidad <= 0) {
-            alert("No agregaste ningun vino, agregue las unidades que quieres a la caja");
-        } else {
-            let itemEnCaja = caja.find(item => item.articulo.id === articulo.id && item.varietal === varietal);
-            if (itemCaja) {
-                itemCaja.cantidad += cantidad;
-            } else {
-                caja.push({ articulo, cantidad, varietal });
-            }
-            guardarCaja();
-            actualizarContadorCaja();
-            alert(`Has agregado ${cantidad} unidad(es) de ${articulo.nombreProducto} (${varietal}) a la caja.`);
-        }
-    } else {
-        alert("Artículo no encontrado.");
+const cargarArticulos = async () => {
+    try {
+        const respuesta = await fetch("http://localhost:5500/Entrega-tress-Sass/json/vinos.json");
+        if (!respuesta.ok) throw new Error(`Error al obtener los productos: Código: ${respuesta.status}`);
+        const productos = await respuesta.json();
+        articulos = productos.map(({ id, nombre, precio, varietalProducto }) => new Articulo(id, nombre, precio, varietalProducto));
+        localStorage.setItem('articulos', stringify(articulos));
+        await mostrarArticulos();
+    } catch (error) {
+        console.error("Error al cargar artículos:", error);
+        mostrarMensaje("Hubo un error al cargar los artículos. Por favor, intente de nuevo más tarde.", "error");
     }
-}
+};
 
-function mostrarCaja() {
-    const cartOverlay = document.getElementById('cartOverlay');
-    const cartContents = document.getElementById('cartContents');
-    
-    if (caja.length === 0) {
-        cartContents.innerHTML = "<p>No hay ningún vino en la caja</p>";
-    } else {
-        let resumenCaja = "";
-        let total = 0;
-        caja.forEach((item, index) => {
-            const precioConIVA = (item.articulo.precioProducto * (1 + IVA)).toFixed(2);
-            const subtotal = (item.cantidad * item.articulo.precioProducto * (1 + IVA)).toFixed(2);
-            resumenCaja += `
-                <div class="cart-item">
-                    <p><strong>Artículo:</strong> ${item.articulo.nombreProducto}</p>
-                    <p><strong>Varietal:</strong> ${item.varietal}</p>
-                    <p><strong>Precio Unitario (con IVA):</strong> $${precioConIVA}</p>
-                    <p><strong>Subtotal:</strong> $${subtotal}</p>
-                    <input type="number" value="${item.cantidad}" min="1" onchange="actualizarCantidad(${index}, this.value)">
-                    <button onclick="eliminarArticulo(${index})">Eliminar</button>
-                </div>
+const mostrarArticulos = async () => {
+    try {
+        const contenedor = document.getElementById("containertienda");
+        if (!contenedor) throw new Error("El contenedor de la tienda no se encontró en el DOM");
+        contenedor.innerHTML = "";
+        
+        articulos.forEach(({ id, nombreProducto, precioProducto, varietalProducto }) => {
+            const articuloDiv = document.createElement("div");
+            articuloDiv.classList.add("articulo");
+            
+            const varietalesDiv = document.createElement("div");
+            varietalesDiv.classList.add("varietal");
+
+            varietalProducto.forEach(varietal => {
+                const varietalBoton = document.createElement("button");
+                Object.assign(varietalBoton, {
+                    textContent: varietal,
+                    className: "varietal-boton",
+                    onclick: () => seleccionarVarietal(varietal, id)
+                });
+                varietalesDiv.appendChild(varietalBoton);
+            });
+            
+            const precioConIVA = (precioProducto * (1 + IVA)).toFixed(2);
+            articuloDiv.innerHTML = `
+                <h3>${nombreProducto}</h3>
+                <p>Precio (con IVA): $${precioConIVA}</p>
             `;
-            total += parseFloat(subtotal);
+            
+            articuloDiv.appendChild(varietalesDiv);
+            contenedor.appendChild(articuloDiv);
         });
-        resumenCaja += `<p><strong>Su total es:</strong> $${total.toFixed(2)}</p>`;
-        cartContents.innerHTML = resumenCaja;
+    } catch (error) {
+        console.error("Error al mostrar artículos:", error);
+        mostrarMensaje("Hubo un error al cargar los artículos. Por favor, intente de nuevo más tarde.", "error");
     }
-    
-    cartOverlay.style.display = 'block';
-}
+};
 
-function actualizarCantidad(index, newCantidad) {
-    nuevaCantidad = parseInt(newCantidad, 10);
-    if (isNaN(newCantidad) || newCantidad <= 0) {
-        alert("No hay vinos agregados, agregue algún vino.");
-        return;
+const buscarArticulos = async () => {
+    try {
+        const input = document.getElementById('searchInput');
+        if (!input) throw new Error("El campo de búsqueda no se encontró en el DOM");
+        const busqueda = input.value.toLowerCase();
+        const articulosFiltrados = articulos.filter(({ nombreProducto }) => 
+            nombreProducto.toLowerCase().includes(busqueda)
+        );
+        await mostrarArticulosFiltrados(articulosFiltrados);
+    } catch (error) {
+        console.error("Error al buscar artículos:", error);
+        mostrarMensaje("Hubo un error al buscar artículos. Por favor, intente de nuevo.", "error");
     }
+};
 
-    caja[index].cantidad = newCantidad;
-    if (newCantidad === 0) {
-        caja.splice(index, 1); 
+const mostrarArticulosFiltrados = async (articulosFiltrados) => {
+    try {
+        const contenedor = document.getElementById("containertienda");
+        if (!contenedor) throw new Error("El contenedor de la tienda no se encontró en el DOM");
+        contenedor.innerHTML = '';
+        
+        articulosFiltrados.forEach(({ id, nombreProducto, precioProducto, varietalProducto }) => {
+            const articuloDiv = document.createElement("div");
+            articuloDiv.classList.add("articulo");
+            
+            const varietalesDiv = document.createElement("div");
+            varietalesDiv.classList.add("varietales");
+            varietalProducto.forEach(varietal => {
+                const varietalBoton = document.createElement("button");
+                Object.assign(varietalBoton, {
+                    textContent: varietal,
+                    className: "varietal-boton",
+                    onclick: () => seleccionarVarietal(varietal, id)
+                });
+                varietalesDiv.appendChild(varietalBoton);
+            });
+            
+            const precioConIVA = (precioProducto * (1 + IVA)).toFixed(2);
+            articuloDiv.innerHTML = `
+                <h3>${nombreProducto}</h3>
+                <p>Precio (con IVA): $${precioConIVA}</p>
+            `;
+            
+            articuloDiv.appendChild(varietalesDiv);
+            contenedor.appendChild(articuloDiv);
+        });
+    } catch (error) {
+        console.error("Error al mostrar artículos filtrados:", error);
+        mostrarMensaje("Hubo un error al mostrar los resultados de la búsqueda. Por favor, intente de nuevo.", "error");
     }
-    guardarCaja();
-    actualizarCaja();
-    mostrarCaja();
-}
+};
 
-function eliminarArticulo(index) {
-    caja.splice(index, 1);
-    guardarCaja();
-    actualizarCaja();
-    mostrarCaja();
-}
-
-function ocultarCaja() {
-    const cartOverlay = document.getElementById('cartOverlay');
-    cartOverlay.style.display = 'none';
-}
-
-function actualizarCaja() {
-    const contadorCaja = document.getElementById('contadorCaja');
-    const totalArticulos = caja.reduce((acc, item) => acc + item.cantidad, 0);
-    contadorCaja.textContent = `${totalArticulos}`;
-}
-
-function finalizarCompra() {
-    if (caja.length === 0) {
-        alert("No hay productos en la caja. No puedes finalizar la compra.");
-        return;
+const seleccionarVarietal = async (varietal, articuloId) => {
+    try {
+        const articulo = articulos.find(({ id }) => id === articuloId);
+        if (!articulo) throw new Error("Artículo no encontrado");
+        
+        const cantidad = parseInt(prompt(`¿Cuántas unidades deseas de ${articulo.nombreProducto} (${varietal})?`), 10);
+        if (isNaN(cantidad) || cantidad <= 0) throw new Error("Cantidad inválida");
+        
+        const itemEnCaja = carroDeCompras.find(item => item.articulo.id === articulo.id && item.varietal === varietal);
+        if (itemEnCaja) {
+            itemEnCaja.cantidad += cantidad;
+        } else {
+            carroDeCompras.push({ articulo, cantidad, varietal });
+        }
+        
+        localStorage.setItem('carrito', stringify(carroDeCompras));
+        actualizarVistaCarrito();
+        
+        mostrarMensaje(`Has agregado ${cantidad} unidad(es) de ${articulo.nombreProducto} (${varietal}) a la caja.`, "success");
+    } catch (error) {
+        console.error("Error al seleccionar varietal:", error);
+        mostrarMensaje(error.message === "Cantidad inválida" ? "No agregaste ningún vino. Por favor, ingrese una cantidad válida." : "Hubo un error al agregar el artículo. Por favor, intente de nuevo.", "error");
     }
+};
 
-    alert("¡Gracias por tu compra! Tu pedido ha sido procesado.");
-    caja = [];
-    guardarCaja();
-    actualizarContadorCaja();
-    mostrarCaja(); 
-}
+const actualizarVistaCarrito = () => {
+    const carritoContainer = document.getElementById('carrito-container');
+    if (!carritoContainer) return;
 
-function guardarCaja() {
-    localStorage.setItem('caja', JSON.stringify(caja));
-}
+    carritoContainer.innerHTML = '';
+    carroDeCompras.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.innerHTML = `
+            <p>${item.articulo.nombreProducto} (${item.varietal}) - Cantidad: ${item.cantidad}</p>
+            <button onclick="eliminarDelCarrito('${item.articulo.id}')">Eliminar</button>
+        `;
+        carritoContainer.appendChild(itemDiv);
+    });
+};
 
-function mostrarMensaje(mensaje, tipo = 'info') {
+const mostrarMensaje = (mensaje, tipo) => {
     const mensajeDiv = document.getElementById('mensaje');
     if (!mensajeDiv) return;
 
     mensajeDiv.textContent = mensaje;
-    mensajeDiv.className = `mensaje ${tipo}`;
+    mensajeDiv.className = tipo;
     mensajeDiv.style.display = 'block';
 
     setTimeout(() => {
         mensajeDiv.style.display = 'none';
-    }, 2500); 
-}
-
-function cargarCaja() {
-    const cajaGuardada = localStorage.getItem('caja');
-    if (cajaGuardada) {
-        caja = JSON.parse(cajaGuardada);
-        actualizarContadorCaja();
-    }
-}
-
-window.onload = function() {
-    cargarCaja();
-    mostrarArticulos();
-    mostrarMenu();
+    }, 3000);
 };
 
-async function obtenerProductos() {
+window.onload = async () => {
+    try {
+        await cargarArticulos();
+        actualizarVistaCarrito();
+        
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', buscarArticulos);
+        }
+    } catch (error) {
+        console.error("Error durante la carga inicial:", error);
+        mostrarMensaje("Hubo un error al cargar la página. Por favor, recargue e intente de nuevo.", "error");
+    }
+};
+
+const obtenerProductos = async () => {
     try {
         const respuesta = await fetch("http://localhost:5500/Entrega-tress-Sass/json/vinos.json");
-        if (!respuesta.ok) {
-            throw new Error(`Error al obtener los productos: Código: ${respuesta.status}`);
-        }
+        if (!respuesta.ok) throw new Error(`Error al obtener los productos: Código: ${respuesta.status}`);
         const productos = await respuesta.json();
-        renderizarProductos(productos);
+        await renderizarProductos(productos);
     } catch (error) {
         console.error(`Hubo un problema con la solicitud fetch:`, error);
+        mostrarMensaje("No se pudieron cargar los productos. Por favor, intente más tarde.", "error");
     }
-}
+};
 
-function renderizarProductos(productos) {
-    const contenedorProductos = document.getElementById('productos-container');
+const renderizarProductos = async (productos) => {
+    try {
+        const contenedorProductos = document.getElementById('productos-container');
+        if (!contenedorProductos) throw new Error("El contenedor de productos no se encontró en el DOM");
 
-    productos.forEach(({id, nombre, precio, varietalProducto}) => {
-        // Crear un div para cada producto con las clases de Bootstrap
-        const divProducto = document.createElement('div');
-        divProducto.className = "card card-gris col-10";
+        contenedorProductos.innerHTML = '';
+        productos.forEach(({ id, nombre, precio, varietalProducto }) => {
+            const divProducto = document.createElement('div');
+            divProducto.className = "card card-gris col-10";
 
-        // Contenido HTML del producto
-        const precioConIVA = (precio * (1 + IVA)).toFixed(2);
-        divProducto.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title">${nombre}</h5>
-                <p class="card-text"><strong>Precio (con IVA):</strong> $${precioConIVA}</p>
-                <p class="card-text"><strong>Categoría:</strong> ${varietalProducto}</p>
-                <button class="btn btn-primary" onclick="agregarAlCarrito('${nombre}', ${precio})">Añadir al carrito</button>
-            </div>
-        `;
+            const precioConIVA = (precio * (1 + IVA)).toFixed(2);
+            divProducto.innerHTML = `
+                <div class="card-body">
+                    <h5 class="card-title">${nombre}</h5>
+                    <p class="card-text"><strong>Precio (con IVA):</strong> $${precioConIVA}</p>
+                    <p class="card-text"><strong>Categoría:</strong> ${varietalProducto}</p>
+                    <button class="btn btn-primary" onclick="agregarAlCarrito('${id}', '${nombre}', ${precio})">Añadir al carrito</button>
+                </div>
+            `;
 
-        // Añadir el producto al contenedor
-        contenedorProductos.appendChild(divProducto);
-    });
-}
+            contenedorProductos.appendChild(divProducto);
+        });
+    } catch (error) {
+        console.error("Error al renderizar productos:", error);
+        mostrarMensaje("Hubo un error al mostrar los productos. Por favor, recargue la página.", "error");
+    }
+};
 
-obtenerProductos();
+const agregarAlCarrito = (id, nombre, precio) => {
+    const item = { id, nombre, precio, cantidad: 1 };
+    const itemExistente = carroDeCompras.find(i => i.id === id);
+    if (itemExistente) {
+        itemExistente.cantidad++;
+    } else {
+        carroDeCompras.push(item);
+    }
+    localStorage.setItem('carrito', stringify(carroDeCompras));
+    actualizarVistaCarrito();
+    mostrarMensaje(`Se ha añadido ${nombre} al carrito.`, "success");
+};
+
+document.addEventListener('DOMContentLoaded', obtenerProductos);
